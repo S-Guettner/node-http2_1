@@ -19,15 +19,25 @@ const fileReader = (path,res) => {
 const requestHandler = (req,res) => {
     if(req.url === '/'){
         fileReader('./home.html',res)
-    }else if(req.url === '/about'){
+    }
+    else if(req.url === '/style.css'){
+        fileReader('style.css',res)
+    }
+    else if(req.url === '/about'){
         fileReader('./about.html',res)
-    }else if(req.url === '/faq'){
+    }
+    else if(req.url === '/faq'){
         fileReader('./faq.html',res)
-    }else{
+    }
+    else if(req.url === '/contact'){
+        fileReader('./contact.html',res)
+    }
+    else{
         res.write("NOPEEEE")
+        res.end()
     }
 }
 
 const server = http.createServer(requestHandler)
 
-server.listen(9000 ,() => console.log("server running"))
+server.listen(9100 ,() => console.log("server running"))
